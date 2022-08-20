@@ -24,12 +24,16 @@
             border-bottom: 1px solid rgb(9, 205, 240);
         }
 
-       h3, #first-year,#twenty-year{
+        .percent-mark,h3, #first-year,#twenty-year{
             color: rgb(9, 205, 240);
            
         }
        p>small{
             margin-top: 0px;
+        }
+
+        #monthlySavings{
+        display: inline-block;
         }
     </style>
 
@@ -47,13 +51,13 @@
             <!-- Input Field for average Monthly Bill -->
             <label for="monthlyAmmount">Average Monthly Bill</label>
             <br>
-            <input onblur="showValue()" type="text" name="" id="monthlyAmmount">
+            <input oninput="showValue()" type="text" name="" id="monthlyAmmount">
 
             <br>
             <!-- input field for average monthly savings  -->
             <label for="monthlySavings">Average Monthly Savings</label>
             <br>
-            <input onblur="showValue()" type="text" name="" id="monthlySavings">
+            <input oninput="showValue()" type="text" name="" id="monthlySavings"> <span class="percent-mark">(%)</span>
         </div>
 
 
