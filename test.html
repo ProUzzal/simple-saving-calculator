@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- css --------------- -->
+
+    <style>
+        .main {
+            padding: 2rem;
+            border: 2px solid rgb(9, 205, 240);
+            width: 400px;
+            margin: auto;
+
+        }
+        input[type='text']{
+           
+            
+            border: none;
+            border-bottom: 1px solid rgb(9, 205, 240);
+        }
+
+       h3, #first-year,#twenty-year{
+            color: rgb(9, 205, 240);
+           
+        }
+       p>small{
+            margin-top: 0px;
+        }
+    </style>
+
+</head>
+
+
+<!-- html part ------------------- -->
+<body>
+
+
+    <section class="main">
+
+        <div class="input">
+
+            <!-- Input Field for average Monthly Bill -->
+            <label for="monthlyAmmount">Average Monthly Bill</label>
+            <br>
+            <input onblur="showValue()" type="text" name="" id="monthlyAmmount">
+
+            <br>
+            <!-- input field for average monthly savings  -->
+            <label for="monthlySavings">Average Monthly Savings</label>
+            <br>
+            <input onblur="showValue()" type="text" name="" id="monthlySavings">
+        </div>
+
+
+        <div class="output">
+           <h3>$ <span id="first-year"></span></h3>
+            <p><small>First Year Savings</small></p>
+            <br>
+
+            <h3>$ <span id="twenty-year"></span></h3>
+            <p><small>Twenty Year Savings</small></p>
+
+        </div>
+    </section>
+
+    <script src="/68.objectPrototype.js"></script>
+
+    <!-- JS Part --------------------- -------------------->
+
+    <script>
+        //showing value in display
+        function showValue() {
+
+            //Monthly Bill Amount
+            let monthlyBill = Number(document.getElementById('monthlyAmmount').value);
+
+            //Monthly Savings Rate
+            let savingsRate = Number(document.getElementById('monthlySavings').value);
+
+            if (isNaN(monthlyBill) || isNaN(savingsRate)) {
+                alert('Monthly Bill or Savings rate must be a number.')
+                document.getElementById('monthlyAmmount').value = '';
+                document.getElementById('monthlySavings').value = '';
+            }
+            else {
+                const monthlySavings = ((monthlyBill * savingsRate) / 100)
+                //showing data in display as value
+                //first-year's savings
+                document.getElementById('first-year').innerText = (monthlySavings * 12).toFixed(2);
+                //Tweenty Year's Savings
+                document.getElementById('twenty-year').innerText = (monthlySavings * 240).toFixed(2);
+            }
+        }
+    </script>
+</body>
+
+</html>
